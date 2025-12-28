@@ -58,8 +58,8 @@ body {
 
 .snow-front {
     background-image:
-        radial-gradient(2px 2px at 70% 60%, white 100%, transparent),
-        radial-gradient(2px 2px at 30% 40%, white 100%, transparent);
+        radial-gradient(2px 2px at 80% 70%, white 100%, transparent),
+        radial-gradient(2px 2px at 20% 30%, white 100%, transparent);
     background-size: 100px 100px;
     animation: snow-fall 15s linear infinite;
     opacity: 0.3;
