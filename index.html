@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Santa's List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎅</text></svg>">
+</head>
+    <body class="modo-nino">
+
+    <div class="snow">
+        <div class="snow snow-back"></div>
+        <div class="snow snow-mid"></div>
+        <div class="snow snow-front"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-spacer"></div>
+
+        <h1 class="nav-title">Santa's List</h1>
+
+        <button id="modeToggle" class="mode-btn">
+        Santa mode
+        </button>
+    </nav>
+
+    <main class="main-container">
+
+        <section class="todo-frame">
+        <!-- Ornamentos irán aquí más adelante -->
+
+        <header class="todo-header">
+            <h2>My letter to Santa Claus</h2>
+        </header>
+
+        <form class="todo-form">
+            <input type="text" placeholder="Name of the gift" required class="input-name">
+            
+            <select id="giftPriority" class="input-priority">
+                <option value="low">🎁 Low</option>
+                <option value="medium" selected>⭐ Medium</option>
+                <option value="high">🌟 High</option>
+            </select>
+
+            <input type="url" placeholder="Store link (optional)" class="input-link">
+
+            <textarea id="giftDescription" placeholder="Describe why you deserve it..."></textarea>
+            
+            <button type="submit" class="btn-add">
+                Add to list <i class="fa-solid fa-envelope-circle-check"></i>
+            </button>
+        </form>
+
+        <div class="todo-list">
+    
+        </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <a href="https://github.com/Juls010"><i class="fa-brands fa-github"></i></a>
+        <p>~ Crafted by Julia with love ~</p>
+        <p>© 2025</p>
+    </footer>
+
+    <script src="storage.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>
