@@ -20,13 +20,19 @@
     </div>
 
     <nav class="navbar">
-        <div class="nav-spacer"></div>
-
+        <div class="nav-left">
+        <div class="switch-wrapper">
+            <span class="switch-label kid-label">Child mode</span>
+            
+            <label class="switch">
+                <input type="checkbox" id="santaModeBtn">
+                <span class="slider round"></span>
+            </label>
+            
+            <span class="switch-label adult-label">Santa mode</span>
+        </div>
+    </div>
         <h1 class="nav-title">Santa's List</h1>
-
-        <button id="modeToggle" class="mode-btn">
-        Santa mode
-        </button>
     </nav>
 
     <div id="countdown" class="countdown-container">
@@ -45,9 +51,26 @@
     </div>
 
     <main class="main-container">
-
-        <section class="todo-frame">
-        <!-- Ornamentos irán aquí más adelante -->
+    
+    <section class="todo-frame">
+        <span class="corner-ornament top-left"></span>
+        <span class="corner-ornament top-right"></span>
+        <span class="corner-ornament bottom-left"></span>
+        <span class="corner-ornament bottom-right"></span>
+        <div id="santa-stats" class="santa-stats hidden">
+            <div class="stat-box">
+                <span id="total-gifts">0</span>
+                <label>Gifts</label>
+            </div>
+            <div class="stat-box">
+                <span id="total-bought">0</span>
+                <label>Purchased</label>
+            </div>
+            <div class="stat-box">
+                <span id="pending-high">0</span>
+                <label>High priority</label>
+            </div>
+        </div>
 
         <header class="todo-header">
             <h2>My letter to Santa Claus</h2>
@@ -67,16 +90,16 @@
             <textarea id="giftDescription" placeholder="Describe why you deserve it..."></textarea>
             
             <button type="submit" class="btn-add">
-                Add to list <i class="fa-solid fa-envelope-circle-check"></i>
+                Send to North Pole<i class="fa-solid fa-envelope-circle-check"></i>
             </button>
         </form>
 
         <div class="todo-list">
-    
-        </div>
-        </section>
+            </div>
 
-    </main>
+    </section>
+
+</main> 
 
     <footer class="footer">
         <a href="https://github.com/Juls010"><i class="fa-brands fa-github"></i></a>
@@ -86,5 +109,27 @@
 
     <script src="storage.js"></script>
     <script src="script.js"></script>
+
+    <div id="welcomeModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Magic Instructions</h3>
+                <button class="close-modal close-trigger"><i class="fa-solid fa-xmark"></i></i></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Welcome! You are on Santa Claus' Official List</strong></p>
+                <p><i class="fa-solid fa-child-reaching"></i><strong> Child mode:</strong>Write down your wishes and send them to the North Pole.</p>
+                <hr class="modal-divider">
+                <p><i class="fa-solid fa-sleigh"></i><strong> Santa mode:</strong></p>
+                <p>At the top left, you will see a switch. This is Santa's <strong>“Management Mode”</strong> where can mark gifts as purchased and take notes.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn close-trigger">Let's go!</button>
+            </div>
+        </div>
+    </div>
+    <button id="helpBtn" class="help-btn" title="Ayuda / Instrucciones">?</button>
+
     </body>
+
 </html>

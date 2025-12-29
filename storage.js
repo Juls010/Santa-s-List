@@ -16,3 +16,13 @@ function removeGift(name) {
     const gifts = getGifts().filter(g => g.name !== name);
     saveGifts(gifts);
 }
+
+function toggleGiftBought(name) {
+    const gifts = getGifts(); 
+    const giftIndex = gifts.findIndex(g => g.name === name);
+    
+    if (giftIndex > -1) {
+        gifts[giftIndex].bought = !gifts[giftIndex].bought;
+        saveGifts(gifts);
+    }
+}
