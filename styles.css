@@ -164,7 +164,7 @@ body {
 
 .todo-form {
     display: grid;
-    grid-template-columns: 190px 1fr; 
+    grid-template-columns: 1fr 1fr; 
     gap: 0.6rem;
     margin-bottom: 0.5rem;
     align-items: center;
@@ -174,6 +174,20 @@ body {
 .todo-form textarea,
 .todo-form button {
     grid-column: 1 / -1;
+}
+
+.todo-form input[type="url"] {
+    grid-column: span 1; 
+    width: 100%;
+}
+
+
+.custom-select {
+    position: relative;
+    cursor: pointer;
+    grid-column: span 1; 
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
 }
 
 .todo-form input,
@@ -245,16 +259,17 @@ body {
 }
 
 .select-headboard {
-    background-color: #fffdfa;
+    background-color: #fffdfa; 
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 0 1rem;
-    height: 40px;
+    padding: 0 0.8rem;
+    height: 40px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: var(--text-dark);
     transition: all 0.2s ease;
+    font-size: 0.95rem; 
 }
 
 .select-headboard::after {
@@ -263,27 +278,34 @@ body {
     font-size: 0.8rem;
 }
 
-.select-headboard:hover {
+.select-headboard:hover,
+.custom-select.active .select-headboard {
     border-color: var(--gold);
-    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .select-options {
     position: absolute;
-    top: 100%;
+    top: 105%;
     left: 0;
     right: 0;
-    background-color: #fffdfa;
-    border: 2px solid var(--gold);
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    margin-top: 5px;
-    z-index: 100;
-    display: none; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 0;
+    z-index: 1000; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    display: block; 
 }
 
 .select-options.view { 
-    display: block; 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .option {
@@ -539,12 +561,19 @@ body.santa-mode {
     color: #0f0f0f;
 }
 
-body.santa-mode .snow { opacity: 0.3; }
+body.santa-mode .snow { 
+    opacity: 0.3; 
+}
 
 body.santa-mode h1, 
 body.santa-mode h2 {
     color: var(--gold); 
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+body.santa-mode .todo-form button {
+    width: 100%;
+    margin-top: 5px;
 }
 
 body.santa-mode .santa-stats {
@@ -747,7 +776,10 @@ body.santa-mode .corner-ornament {
     color: #999;
     cursor: pointer;
 }
-.close-modal:hover { color: var(--red-bg); }
+
+.close-modal:hover { 
+    color: var(--red-bg); 
+}
 
 .modal-body p {
     font-size: 1rem;
@@ -822,4 +854,140 @@ body.santa-mode .help-btn {
     background-color: var(--gold);
     color: var(--burgundy);
     border-color: var(--burgundy);
+}
+
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; 
+        padding: 10px; 
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column-reverse; 
+        gap: 10px;
+        padding-bottom: 1rem;
+    }
+
+    .nav-title {
+        font-size: 2.5rem; 
+        line-height: 1.2;
+    }
+    
+    .switch-wrapper {
+        transform: scale(0.9); 
+    }
+
+    .todo-frame {
+        width: 95%; 
+        padding: 1rem; 
+        margin-top: 10px;
+    }
+
+    .todo-form {
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 8px;
+    }
+
+    .input-name,
+    #giftDescription,
+    .todo-form button {
+        grid-column: 1 / -1;
+    }
+
+    .custom-select, 
+    .todo-form input[type="url"] {
+        grid-column: span 1 !important; 
+        width: 100% !important;  
+        min-width: 0;   
+    }
+
+    .select-headboard {
+        padding: 0 0.5rem; 
+        font-size: 0.9rem;
+    }
+
+    .corner-ornament { 
+        width: 60px; 
+        height: 60px; 
+    }
+
+    .top-left { 
+        top: -12px; 
+        left: -12px; 
+    }
+
+    .top-right { 
+        top: -12px; 
+        right: -12px; 
+    }
+
+    .bottom-left { 
+        bottom: -12px; 
+        left: -12px; 
+    }
+
+    .bottom-right { 
+        bottom: -12px; 
+        right: -12px; 
+    }
+
+    .countdown-container { 
+        gap: 10px; 
+    }
+
+    .time-box { 
+        min-width: 60px; 
+        padding: 8px; 
+    }
+
+    .time-box span:first-child { 
+        font-size: 1.5rem; 
+    }
+
+    .santa-stats { 
+        gap: 5px; 
+        flex-wrap: wrap; 
+    }
+
+    .santa-stats div, 
+    .santa-stats span {
+        font-size: 0.9rem !important; 
+        white-space: nowrap; 
+    }
+
+    .stat-box { 
+        flex: 1; 
+        min-width: 80px; 
+    }
+
+    .todo-item { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+    }
+
+    .todo-actions { 
+        width: 100%; 
+        justify-content: flex-end; 
+    }
+
+    .status-label,
+    body.santa-mode .todo-card.completed .status-label {
+        display: none !important;
+    }
+    
+    .help-btn { 
+        width: 40px; 
+        height: 40px; 
+        bottom: 15px; 
+        right: 15px; 
+    }
+
+    .modal-card { 
+        width: 90%; 
+        max-height: 80vh; 
+        overflow-y: auto; 
+    }
 }
