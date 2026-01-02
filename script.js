@@ -145,7 +145,11 @@ form.addEventListener("submit", e => {
     form.reset();
     resetCustomSelect(); 
 
-    submitBtn.innerHTML = 'Add to list <i class="fa-solid fa-envelope-circle-check"></i>';
+    if (document.body.classList.contains("santa-mode")) {
+        submitBtn.innerHTML = 'Add to list <i class="fa-solid fa-envelope-circle-check"></i>';
+    } else {
+        submitBtn.innerHTML = 'Send to North Pole<i class="fa-solid fa-envelope-circle-check"></i>';
+    }
 
     isEditing = false;
     editingId = null;
