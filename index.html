@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎅</text></svg>">
 </head>
-    <body class="modo-nino">
+    <body class="child-mode">
 
-    <div class="snow">
+    <div class="snow" aria-hidden="true">
         <div class="snow snow-back"></div>
         <div class="snow snow-mid"></div>
         <div class="snow snow-front"></div>
@@ -22,42 +22,43 @@
     <nav class="navbar">
         <div class="nav-left">
         <div class="switch-wrapper">
-            <span class="switch-label kid-label">Child mode</span>
+            <span class="switch-label kid-label" aria-hidden="true">Child mode</span>
             
             <label class="switch">
-                <input type="checkbox" id="santaModeBtn">
-                <span class="slider round"></span>
+                <input type="checkbox" id="santaModeBtn" role="switch" aria-label="Toggle between Child and Santa mode">
+                <span class="slider round" aria-hidden="true"></span>
             </label>
             
-            <span class="switch-label adult-label">Santa mode</span>
+            <span class="switch-label adult-label" aria-hidden="true">Santa mode</span>
         </div>
     </div>
         <h1 class="nav-title">Santa's List</h1>
     </nav>
 
-    <div id="countdown" class="countdown-container">
+    <div id="countdown" class="countdown-container" aria-label="Countdown to Christmas">
         <div class="time-box">
-            <span id="days"></span>
-            <span class="label">Days</span>
+            <span id="days" aria-label="Days remaining"></span>
+            <span class="label" aria-hidden="true">Days</span>
         </div>
         <div class="time-box">
-            <span id="hours"></span>
-            <span class="label">Hrs</span>
+            <span id="hours" aria-label="Hours remaining"></span>
+            <span class="label" aria-hidden="true">Hrs</span>
         </div>
         <div class="time-box">
-            <span id="minutes"></span>
-            <span class="label">Min</span>
+            <span id="minutes" aria-label="Minutes remaining"></span>
+            <span class="label" aria-hidden="true">Min</span>
         </div>
     </div>
 
     <main class="main-container">
     
     <section class="todo-frame">
-        <span class="corner-ornament top-left"></span>
-        <span class="corner-ornament top-right"></span>
-        <span class="corner-ornament bottom-left"></span>
-        <span class="corner-ornament bottom-right"></span>
-        <div id="santa-stats" class="santa-stats hidden">
+        <span class="corner-ornament top-left" aria-hidden="true"></span>
+        <span class="corner-ornament top-right" aria-hidden="true"></span>
+        <span class="corner-ornament bottom-left" aria-hidden="true"></span>
+        <span class="corner-ornament bottom-right" aria-hidden="true"></span>
+
+        <div id="santa-stats" class="santa-stats hidden" aria-live="polite" aria-label="Gift Statistics">
             <div class="stat-box">
                 <span id="total-gifts">0</span>
                 <label>Gifts</label>
@@ -77,24 +78,24 @@
         </header>
 
         <form class="todo-form">
-            <input type="text" placeholder="Name of the gift" required class="input-name">
+            <input type="text" placeholder="Name of the gift" required class="input-name" aria-label="Gift Name">
             
-            <select id="giftPriority" class="input-priority">
+            <select id="giftPriority" class="input-priority" aria-label="Select Gift Priority">
                 <option value="low">🎁 Low</option>
                 <option value="medium" selected>⭐ Medium</option>
                 <option value="high">🌟 High</option>
             </select>
 
-            <input type="url" placeholder="Store link" class="input-link">
+            <input type="url" placeholder="Store link" class="input-link" aria-label="Store Link">
 
-            <textarea id="giftDescription" placeholder="Describe why you deserve it..."></textarea>
+            <textarea id="giftDescription" placeholder="Describe why you deserve it..." aria-label="Description or reason"></textarea>
             
             <button type="submit" class="btn-add">
-                Send to North Pole<i class="fa-solid fa-envelope-circle-check"></i>
+                Send to North Pole<i class="fa-solid fa-envelope-circle-check" aria-hidden="true"></i>
             </button>
         </form>
 
-        <div class="todo-list">
+        <div class="todo-list" role="list" aria-label="List of added gifts">
             </div>
 
     </section>
@@ -102,7 +103,7 @@
 </main> 
 
     <footer class="footer">
-        <a href="https://github.com/Juls010"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/Juls010" aria-label="Visit Julia's Github Profile"><i class="fa-brands fa-github"></i></a>
         <p>~ Crafted by Julia with love ~</p>
         <p>© 2025</p>
     </footer>
@@ -110,17 +111,17 @@
     <script src="storage.js"></script>
     <script src="script.js"></script>
 
-    <div id="welcomeModal" class="modal-overlay">
+    <div id="welcomeModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-card">
             <div class="modal-header">
                 <h3>Magic Instructions</h3>
-                <button class="close-modal close-trigger"><i class="fa-solid fa-xmark"></i></i></button>
+                <button class="close-modal close-trigger" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></i></button>
             </div>
             <div class="modal-body">
                 <p><strong>Welcome! You are on Santa Claus' Official List</strong></p>
-                <p><i class="fa-solid fa-child-reaching"></i><strong> Child mode:</strong>Write down your wishes and send them to the North Pole.</p>
-                <hr class="modal-divider">
-                <p><i class="fa-solid fa-sleigh"></i><strong> Santa mode:</strong></p>
+                <p><i class="fa-solid fa-child-reaching" aria-hidden="true"></i><strong> Child mode:</strong>Write down your wishes and send them to the North Pole.</p>
+                <hr class="modal-divider" aria-hidden="true">
+                <p><i class="fa-solid fa-sleigh" aria-hidden="true"></i><strong> Santa mode:</strong></p>
                 <p>At the top left, you will see a switch. This is Santa's <strong>“Management Mode”</strong> where can mark gifts as purchased and take notes.</p>
             </div>
             <div class="modal-footer">
@@ -128,7 +129,7 @@
             </div>
         </div>
     </div>
-    <button id="helpBtn" class="help-btn" title="Ayuda / Instrucciones">?</button>
+    <button id="helpBtn" class="help-btn" title="Help / Instructions" aria-label="Open Help and Instructions">?</button>
 
     </body>
 
